@@ -22,6 +22,7 @@ class ViewController: UIViewController {
 //    var PCoordz: Float = 0.0
     
     var fileName: String = "car.scn"
+    var wordArr = [String]()
     
     let buttonView = UIView()
     let audioEngine = AVAudioEngine()
@@ -58,22 +59,26 @@ class ViewController: UIViewController {
     func attachMiniView() {
         buttonView.frame.origin.x = 0.0
         buttonView.frame.size.width = sceneView.frame.size.width
-        buttonView.frame.origin.y = (sceneView.frame.size.height - 30.0)
-        buttonView.frame.size.height = 30.0
+        buttonView.frame.origin.y = (sceneView.frame.size.height - 200.0)
+        buttonView.frame.size.height = 200.0
         buttonView.backgroundColor = .clear
         buttonView.isUserInteractionEnabled = true
         sceneView.addSubview(buttonView)
     }
+
     
-    func makeAction(action: [String]) {
-        switch action {
-        case "right":
-            translocateEnitreNode(ix: 2.0, iy: 0.0, iz: 0.0)
-        case "left":
-            translocateEnitreNode(ix: -2.0, iy: 0.0, iz: 0.0)
-        default:
-            print("No action found...")
+    func isInsie(arr1: [String], arr2: [String], arr3: [String] = []) -> Bool {
+        for element in arr1 {
+            if !(arr2.contains(element)) {
+                return false
+            }
         }
+        for element in arr2 {
+            if (arr3.contains(element)) {
+                return false
+            }
+        }
+        return true
     }
     
     func createScene(x: Float = -2.0, y: Float = -2.0, z: Float = -1.2) {
@@ -204,8 +209,9 @@ class ViewController: UIViewController {
                     let indexTo = bestString.index(bestString.startIndex, offsetBy: segment.substringRange.location)
                     lastString = String(bestString[indexTo...])
                 }
+                self.wordArr.append(lastString.lowercased())
                 let commands = lastString.components(separatedBy: ", ")
-                makeAction(action: commands)
+                print(commands)
             } else if let error = error {
                 print(error)
             }
@@ -233,15 +239,79 @@ class ViewController: UIViewController {
 //        self.sceneView.scene.rootNode.addChildNode(self.node)
 //    }
     
+    func makeAction(action: [String]) {
+        
+        if (isInsie(arr1: ["right", "move"], arr2: action, arr3: ["tire"])) {
+            let ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            print(ans)
+            translocateEnitreNode(ix: ans, iy: 0.0, iz: 0.0)
+        } else if (isInsie(arr1: ["left", "move"], arr2: action, arr3: ["tire"])) {
+            var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            ans *= -1.0
+            print(ans, "Moving entire ride to the left")
+            translocateEnitreNode(ix: ans, iy: 0.0, iz: 0.0)
+        } else if (isInsie(arr1: ["up", "move"], arr2: action, arr3: ["tire"])) {
+            let ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            print(ans)
+            translocateEnitreNode(ix: 0.0, iy: ans, iz: 0.0)
+        } else if (isInsie(arr1: ["down", "move"], arr2: action, arr3: ["tire"])) {
+            var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            ans *= -1.0
+            print(ans)
+            translocateEnitreNode(ix: 0.0, iy: ans, iz: 0.0)
+        } else if (isInsie(arr1: ["forward", "move"], arr2: action, arr3: ["tire"])) {
+            let ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            print(ans)
+            translocateEnitreNode(ix: 0.0, iy: 0.0, iz: ans)
+        } else if (isInsie(arr1: ["back", "move"], arr2: action, arr3: ["tire"])) {
+            var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            ans *= -1.0
+            translocateEnitreNode(ix: 0.0, iy: 0.0, iz: ans)
+        }  else if (isInsie(arr1: ["left", "move", "front", "tire"], arr2: action)) {
+            var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            ans *= -1.0
+            print(ans, "Moving specific tire to left")
+            translocateSpecificNode(ix: ans, iy: 0.0, iz: 0.0, name: "tire-004")
+        } else if (isInsie(arr1: ["right", "move", "front", "tire"], arr2: action)) {
+            var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            print(ans)
+            translocateSpecificNode(ix: ans, iy: 0.0, iz: 0.0, name: "tire-004")
+        } else if (isInsie(arr1: ["increase", "scale", "car", "entire"], arr2: action)) {
+            var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            print(ans)
+            increaseEntireScale(by: ans)
+        } else if (isInsie(arr1: ["increase", "scale", "car", "front"], arr2: action)) {
+            var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            print(ans)
+            increaseEntireScale(by: ans)
+        } else if (isInsie(arr1: ["decrease", "scale", "car", "entire"], arr2: action)) {
+            var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            print(ans)
+            decreaseEntireScale(by: ans)
+        } else if (isInsie(arr1: ["decrease", "scale", "car", "front"], arr2: action)) {
+            var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            print(ans)
+            decreaseEntireScale(by: ans)
+        }
+            
+        wordArr = []
+        print("Action COmpleted")
+    }
+    
     @objc func didTap(_ gesture: UITapGestureRecognizer) {
         if isRecording == true {
+            print("Done Talking...")
+            print(wordArr)
             cancelRecording()
+            makeAction(action: wordArr)
             isRecording = false
         } else {
+            print("Recording...")
             self.recordAndRecognizeSpeech()
             isRecording = true
         }
     }
+
     
 //    private func addPinchGesture() {
 //           let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(didPinch(_:)))
@@ -351,10 +421,18 @@ class ViewController: UIViewController {
 //    }
 }
 
-extension float4x4 {
-    var translation: float3 {
-        let translation = self.columns.3
-        return float3(translation.x, translation.y, translation.z)
+//extension float4x4 {
+//    var translation: float3 {
+//        let translation = self.columns.3
+//        return float3(translation.x, translation.y, translation.z)
+//    }
+//}
+
+public extension String {
+    func wordToInteger() -> Int? {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .spellOut
+        return  numberFormatter.number(from: self) as? Int
     }
 }
 
