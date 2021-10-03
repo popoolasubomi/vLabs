@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003715C8045672015C3DA995 /* Pods_Myoko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612064A44BB737C85F1B8406 /* Pods_Myoko.framework */; };
+		7E6CB0257C9149939B6614DC /* Pods_Myoko_MyokoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE35407CF165C0EA7F2407 /* Pods_Myoko_MyokoUITests.framework */; };
 		837EE9E5270823730004C5F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837EE9E4270823730004C5F8 /* AppDelegate.swift */; };
 		837EE9E7270823730004C5F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837EE9E6270823730004C5F8 /* SceneDelegate.swift */; };
 		837EE9E9270823730004C5F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837EE9E8270823730004C5F8 /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 		83F53E302709294C00980009 /* skeleton.scn in Resources */ = {isa = PBXBuildFile; fileRef = 83F53E2F2709294C00980009 /* skeleton.scn */; };
 		83F53E3227094E9100980009 /* car.dae in Resources */ = {isa = PBXBuildFile; fileRef = 83F53E3127094E9100980009 /* car.dae */; };
 		83F53E3427094EB400980009 /* car.scn in Resources */ = {isa = PBXBuildFile; fileRef = 83F53E3327094EB400980009 /* car.scn */; };
+		83F53E362709A00900980009 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F53E352709A00900980009 /* HomeViewController.swift */; };
+		D545CF6A2CC8DDA1C5D3B723 /* Pods_MyokoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5171BA5D1374BAD8FAE6E8 /* Pods_MyokoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26CCCCDF968AE1484F18968C /* Pods-MyokoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyokoTests.release.xcconfig"; path = "Target Support Files/Pods-MyokoTests/Pods-MyokoTests.release.xcconfig"; sourceTree = "<group>"; };
+		32022917B0099367044CB768 /* Pods-Myoko-MyokoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Myoko-MyokoUITests.release.xcconfig"; path = "Target Support Files/Pods-Myoko-MyokoUITests/Pods-Myoko-MyokoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3669CDA0D757AC426419DF11 /* Pods-Myoko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Myoko.release.xcconfig"; path = "Target Support Files/Pods-Myoko/Pods-Myoko.release.xcconfig"; sourceTree = "<group>"; };
+		612064A44BB737C85F1B8406 /* Pods_Myoko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Myoko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		837EE9E1270823730004C5F8 /* Myoko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Myoko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837EE9E4270823730004C5F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837EE9E6270823730004C5F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +67,12 @@
 		83F53E2F2709294C00980009 /* skeleton.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = skeleton.scn; sourceTree = "<group>"; };
 		83F53E3127094E9100980009 /* car.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = car.dae; sourceTree = "<group>"; };
 		83F53E3327094EB400980009 /* car.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = car.scn; sourceTree = "<group>"; };
+		83F53E352709A00900980009 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A55BF56CD8F42CBAED9CAF47 /* Pods-Myoko-MyokoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Myoko-MyokoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Myoko-MyokoUITests/Pods-Myoko-MyokoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AA5171BA5D1374BAD8FAE6E8 /* Pods_MyokoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyokoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF29FE2227B2F977B8DA8AC8 /* Pods-MyokoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyokoTests.debug.xcconfig"; path = "Target Support Files/Pods-MyokoTests/Pods-MyokoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C333289855D29B5A5C78CC5D /* Pods-Myoko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Myoko.debug.xcconfig"; path = "Target Support Files/Pods-Myoko/Pods-Myoko.debug.xcconfig"; sourceTree = "<group>"; };
+		DBEE35407CF165C0EA7F2407 /* Pods_Myoko_MyokoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Myoko_MyokoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003715C8045672015C3DA995 /* Pods_Myoko.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D545CF6A2CC8DDA1C5D3B723 /* Pods_MyokoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +96,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6CB0257C9149939B6614DC /* Pods_Myoko_MyokoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71ACFC0815DAA9903360564B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C333289855D29B5A5C78CC5D /* Pods-Myoko.debug.xcconfig */,
+				3669CDA0D757AC426419DF11 /* Pods-Myoko.release.xcconfig */,
+				A55BF56CD8F42CBAED9CAF47 /* Pods-Myoko-MyokoUITests.debug.xcconfig */,
+				32022917B0099367044CB768 /* Pods-Myoko-MyokoUITests.release.xcconfig */,
+				BF29FE2227B2F977B8DA8AC8 /* Pods-MyokoTests.debug.xcconfig */,
+				26CCCCDF968AE1484F18968C /* Pods-MyokoTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		837EE9D8270823730004C5F8 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +123,8 @@
 				837EE9FD270823770004C5F8 /* MyokoTests */,
 				837EEA08270823770004C5F8 /* MyokoUITests */,
 				837EE9E2270823730004C5F8 /* Products */,
+				71ACFC0815DAA9903360564B /* Pods */,
+				C6ADF30971142611698C00CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +153,7 @@
 				837EE9F2270823760004C5F8 /* LaunchScreen.storyboard */,
 				837EE9F5270823760004C5F8 /* Info.plist */,
 				837EE9ED270823730004C5F8 /* Myoko.xcdatamodeld */,
+				83F53E352709A00900980009 /* HomeViewController.swift */,
 			);
 			path = Myoko;
 			sourceTree = "<group>";
@@ -143,6 +176,16 @@
 			path = MyokoUITests;
 			sourceTree = "<group>";
 		};
+		C6ADF30971142611698C00CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				612064A44BB737C85F1B8406 /* Pods_Myoko.framework */,
+				DBEE35407CF165C0EA7F2407 /* Pods_Myoko_MyokoUITests.framework */,
+				AA5171BA5D1374BAD8FAE6E8 /* Pods_MyokoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +193,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 837EEA0E270823770004C5F8 /* Build configuration list for PBXNativeTarget "Myoko" */;
 			buildPhases = (
+				753F80727618CBD10E5FF533 /* [CP] Check Pods Manifest.lock */,
 				837EE9DD270823730004C5F8 /* Sources */,
 				837EE9DE270823730004C5F8 /* Frameworks */,
 				837EE9DF270823730004C5F8 /* Resources */,
+				00D746BB03C00BD9F5801F48 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,6 +212,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 837EEA11270823770004C5F8 /* Build configuration list for PBXNativeTarget "MyokoTests" */;
 			buildPhases = (
+				1232E9C9EFC283E148580A8E /* [CP] Check Pods Manifest.lock */,
 				837EE9F6270823770004C5F8 /* Sources */,
 				837EE9F7270823770004C5F8 /* Frameworks */,
 				837EE9F8270823770004C5F8 /* Resources */,
@@ -185,9 +231,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 837EEA14270823770004C5F8 /* Build configuration list for PBXNativeTarget "MyokoUITests" */;
 			buildPhases = (
+				83CE0BC25BD163002931A075 /* [CP] Check Pods Manifest.lock */,
 				837EEA01270823770004C5F8 /* Sources */,
 				837EEA02270823770004C5F8 /* Frameworks */,
 				837EEA03270823770004C5F8 /* Resources */,
+				32F39CCF982AE43BE58C07F8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,11 +320,115 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00D746BB03C00BD9F5801F48 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Myoko/Pods-Myoko-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Myoko/Pods-Myoko-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Myoko/Pods-Myoko-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1232E9C9EFC283E148580A8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyokoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		32F39CCF982AE43BE58C07F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Myoko-MyokoUITests/Pods-Myoko-MyokoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Myoko-MyokoUITests/Pods-Myoko-MyokoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Myoko-MyokoUITests/Pods-Myoko-MyokoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		753F80727618CBD10E5FF533 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Myoko-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83CE0BC25BD163002931A075 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Myoko-MyokoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		837EE9DD270823730004C5F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83F53E362709A00900980009 /* HomeViewController.swift in Sources */,
 				837EE9E9270823730004C5F8 /* ViewController.swift in Sources */,
 				837EE9EF270823730004C5F8 /* Myoko.xcdatamodeld in Sources */,
 				837EE9E5270823730004C5F8 /* AppDelegate.swift in Sources */,
@@ -453,6 +605,7 @@
 		};
 		837EEA0F270823770004C5F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C333289855D29B5A5C78CC5D /* Pods-Myoko.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -472,6 +625,7 @@
 		};
 		837EEA10270823770004C5F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3669CDA0D757AC426419DF11 /* Pods-Myoko.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -491,6 +645,7 @@
 		};
 		837EEA12270823770004C5F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF29FE2227B2F977B8DA8AC8 /* Pods-MyokoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -513,6 +668,7 @@
 		};
 		837EEA13270823770004C5F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26CCCCDF968AE1484F18968C /* Pods-MyokoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -535,6 +691,7 @@
 		};
 		837EEA15270823770004C5F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A55BF56CD8F42CBAED9CAF47 /* Pods-Myoko-MyokoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -555,6 +712,7 @@
 		};
 		837EEA16270823770004C5F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32022917B0099367044CB768 /* Pods-Myoko-MyokoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

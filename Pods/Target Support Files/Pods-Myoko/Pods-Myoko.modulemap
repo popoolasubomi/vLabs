@@ -1,0 +1,6 @@
+framework module Pods_Myoko {
+  umbrella header "Pods-Myoko-umbrella.h"
+
+  export *
+  module * { export * }
+}

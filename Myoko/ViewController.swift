@@ -8,12 +8,15 @@
 import UIKit
 import ARKit
 import Speech
+import Parse
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var sceneView: ARSCNView!
     
     private var node: SCNNode!
+    var name: String = ""
+    var opponent: String = ""
 //    private var lastRotation: Float = 0
     private let configuration = ARWorldTrackingConfiguration()
     
@@ -24,12 +27,19 @@ class ViewController: UIViewController {
     var fileName: String = "car.scn"
     var wordArr = [String]()
     
+    var lastTrack = 0
+    
     let buttonView = UIView()
     let audioEngine = AVAudioEngine()
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
     let request = SFSpeechAudioBufferRecognitionRequest()
     var recognitionTask: SFSpeechRecognitionTask?
     var isRecording = false
+    
+    
+    
+
+    var randUserTimer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +48,20 @@ class ViewController: UIViewController {
         sceneView.showsStatistics = true
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         addTapGesture()
-        self.createScene(x: -2.0, y: -2.0, z: -1.2)
+        
 //        self.addPinchGesture()
 //        self.addRotationGesture()
 //        self.addDragRecognizer()
         attachMiniView()
         requestSpeechAuthorization()
+        
+     
+                
+        randUserTimer = Timer.scheduledTimer(timeInterval: 3,
+            target: self,
+            selector: #selector(retrieveCommand),
+            userInfo: nil,
+            repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -239,9 +257,11 @@ class ViewController: UIViewController {
 //        self.sceneView.scene.rootNode.addChildNode(self.node)
 //    }
     
-    func makeAction(action: [String]) {
+    func makeAction(action: [String], isUpdated: Bool = false) {
         
-        if (isInsie(arr1: ["right", "move"], arr2: action, arr3: ["tire"])) {
+        if (isInsie(arr1: ["create"], arr2: action))  {
+            self.createScene(x: -2.0, y: -2.0, z: -1.2)
+        } else if (isInsie(arr1: ["right", "move"], arr2: action, arr3: ["tire"])) {
             let ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
             print(ans)
             translocateEnitreNode(ix: ans, iy: 0.0, iz: 0.0)
@@ -250,11 +270,11 @@ class ViewController: UIViewController {
             ans *= -1.0
             print(ans, "Moving entire ride to the left")
             translocateEnitreNode(ix: ans, iy: 0.0, iz: 0.0)
-        } else if (isInsie(arr1: ["up", "move"], arr2: action, arr3: ["tire"])) {
+        } else if (isInsie(arr1: ["up", "move"], arr2: action, arr3: ["tire", "engine"])) {
             let ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
             print(ans)
             translocateEnitreNode(ix: 0.0, iy: ans, iz: 0.0)
-        } else if (isInsie(arr1: ["down", "move"], arr2: action, arr3: ["tire"])) {
+        } else if (isInsie(arr1: ["down", "move"], arr2: action, arr3: ["tire", "engine"])) {
             var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
             ans *= -1.0
             print(ans)
@@ -276,26 +296,59 @@ class ViewController: UIViewController {
             var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
             print(ans)
             translocateSpecificNode(ix: ans, iy: 0.0, iz: 0.0, name: "tire-004")
-        } else if (isInsie(arr1: ["increase", "scale", "car", "entire"], arr2: action)) {
+        } else if (isInsie(arr1: ["increase", "size", "car", "entire"], arr2: action)) {
             var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
             print(ans)
             increaseEntireScale(by: ans)
         } else if (isInsie(arr1: ["increase", "scale", "car", "front"], arr2: action)) {
             var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
             print(ans)
-            increaseEntireScale(by: ans)
-        } else if (isInsie(arr1: ["decrease", "scale", "car", "entire"], arr2: action)) {
+            increaseSpecificScale(by: ans, name: "tire-004")
+        } else if (isInsie(arr1: ["decrease", "size", "car", "entire"], arr2: action)) {
             var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
             print(ans)
             decreaseEntireScale(by: ans)
         } else if (isInsie(arr1: ["decrease", "scale", "car", "front"], arr2: action)) {
             var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
             print(ans)
-            decreaseEntireScale(by: ans)
+            decreaseSpecificScale(by: ans, name: "tire-004")
+        } else if (isInsie(arr1: ["up", "move", "engine"], arr2: action, arr3: ["tire"])) {
+            let ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            print(ans)
+            translocateSpecificNode(ix: 0.0, iy: ans, iz: 0.0, name: "Block")
+        } else if (isInsie(arr1: ["down", "move", "engine"], arr2: action, arr3: ["tire"])) {
+            var ans = Float(action[action.count - 2].wordToInteger() ?? 1) ?? 1.0
+            ans *= -1.0
+            print(ans)
+            translocateSpecificNode(ix: 0.0, iy: ans, iz: 0.0, name: "Block")
         }
-            
-        wordArr = []
+        
+        if isUpdated {
+            updateCommand()
+            print("Updated")
+        }
+        
         print("Action COmpleted")
+    }
+    
+    func updateCommand() {
+        let user = PFUser.current()!
+        user["commands"] = wordArr
+        user["track"] = user["track"] as! Int + 1
+        user.saveInBackground(block: {success,  fail in
+            self.wordArr = []
+        })
+    }
+    
+    @objc func retrieveCommand() {
+        var findUsers:PFQuery = PFUser.query()!
+        findUsers.whereKey("username",  equalTo: opponent)
+        findUsers.findObjectsInBackground(block: { objects, error in
+            let mob = objects![0]
+            if (mob["track"] as! Int != self.lastTrack) {
+                self.makeAction(action: mob["commands"] as! [String])
+            }
+        })
     }
     
     @objc func didTap(_ gesture: UITapGestureRecognizer) {

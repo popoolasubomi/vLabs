@@ -1,0 +1,6 @@
+framework module Pods_MyokoTests {
+  umbrella header "Pods-MyokoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
