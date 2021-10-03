@@ -16,6 +16,10 @@
 		837EE9F4270823760004C5F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837EE9F2270823760004C5F8 /* LaunchScreen.storyboard */; };
 		837EE9FF270823770004C5F8 /* MyokoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837EE9FE270823770004C5F8 /* MyokoTests.swift */; };
 		837EEA0A270823770004C5F8 /* MyokoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837EEA09270823770004C5F8 /* MyokoUITests.swift */; };
+		83F53E2E2709292700980009 /* skeleton.dae in Resources */ = {isa = PBXBuildFile; fileRef = 83F53E2D2709292700980009 /* skeleton.dae */; };
+		83F53E302709294C00980009 /* skeleton.scn in Resources */ = {isa = PBXBuildFile; fileRef = 83F53E2F2709294C00980009 /* skeleton.scn */; };
+		83F53E3227094E9100980009 /* car.dae in Resources */ = {isa = PBXBuildFile; fileRef = 83F53E3127094E9100980009 /* car.dae */; };
+		83F53E3427094EB400980009 /* car.scn in Resources */ = {isa = PBXBuildFile; fileRef = 83F53E3327094EB400980009 /* car.scn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		837EEA05270823770004C5F8 /* MyokoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyokoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		837EEA09270823770004C5F8 /* MyokoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyokoUITests.swift; sourceTree = "<group>"; };
 		837EEA0B270823770004C5F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83F53E2D2709292700980009 /* skeleton.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = skeleton.dae; sourceTree = "<group>"; };
+		83F53E2F2709294C00980009 /* skeleton.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = skeleton.scn; sourceTree = "<group>"; };
+		83F53E3127094E9100980009 /* car.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = car.dae; sourceTree = "<group>"; };
+		83F53E3327094EB400980009 /* car.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = car.scn; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +112,10 @@
 				837EE9E4270823730004C5F8 /* AppDelegate.swift */,
 				837EE9E6270823730004C5F8 /* SceneDelegate.swift */,
 				837EE9E8270823730004C5F8 /* ViewController.swift */,
+				83F53E2D2709292700980009 /* skeleton.dae */,
+				83F53E2F2709294C00980009 /* skeleton.scn */,
+				83F53E3127094E9100980009 /* car.dae */,
+				83F53E3327094EB400980009 /* car.scn */,
 				837EE9EA270823730004C5F8 /* Main.storyboard */,
 				837EE9F0270823760004C5F8 /* Assets.xcassets */,
 				837EE9F2270823760004C5F8 /* LaunchScreen.storyboard */,
@@ -235,8 +247,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				837EE9F4270823760004C5F8 /* LaunchScreen.storyboard in Resources */,
+				83F53E2E2709292700980009 /* skeleton.dae in Resources */,
 				837EE9F1270823760004C5F8 /* Assets.xcassets in Resources */,
+				83F53E3227094E9100980009 /* car.dae in Resources */,
+				83F53E3427094EB400980009 /* car.scn in Resources */,
 				837EE9EC270823730004C5F8 /* Main.storyboard in Resources */,
+				83F53E302709294C00980009 /* skeleton.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
