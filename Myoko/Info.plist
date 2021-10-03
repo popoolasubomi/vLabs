@@ -68,5 +68,9 @@
     <string>Your speech will be detected after tapping the start button.</string>
     <key>NSSpeechRecognitionUsageDescription</key>
     <string>Speak and watch your words become text or say a color to see the grey box change colors.</string>
+    <key>NSAppTransportSecurity</key>
+         <dict>
+              <key>NSAllowsArbitraryLoads</key><true/>
+         </dict>
 </dict>
 </plist>

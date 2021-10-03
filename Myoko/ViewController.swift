@@ -344,10 +344,13 @@ class ViewController: UIViewController {
         var findUsers:PFQuery = PFUser.query()!
         findUsers.whereKey("username",  equalTo: opponent)
         findUsers.findObjectsInBackground(block: { objects, error in
-            let mob = objects![0]
-            if (mob["track"] as! Int != self.lastTrack) {
-                self.makeAction(action: mob["commands"] as! [String])
+            if objects!.count > 0 {
+                let mob = objects![0]
+                if (mob["track"] as! Int != self.lastTrack) {
+                    self.makeAction(action: mob["commands"] as! [String])
+                }
             }
+          
         })
     }
     

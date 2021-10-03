@@ -10,21 +10,27 @@ import Parse
 
 class HomeViewController: UIViewController {
 
-    var name = "subomi"
-    var contestant = "martin"
+    let name = "martin"
+    let contestant = "subomi"
     var filename = "car.scn"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+//        // Do any additional setup after loading the view.
+//        let user = PFUser()
+//      user.username = contestant
+//        user.password = contestant
+//
+//      user.signUpInBackground()
+        login()
     }
     
     func login() {
-        PFUser.logInWithUsername(inBackground: name, password: name) {
+        PFUser.logInWithUsername(inBackground: "martin", password: "martin") {
           (user: PFUser?, error: Error?) -> Void in
           if user != nil {
-            // Do stuff after successful login.
+            print("success")
           } else {
             // The login failed. Check error to see why.
           }
